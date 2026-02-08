@@ -4,6 +4,8 @@ import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
+import { AppKitProvider } from '@/context/AppKitProvider'
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
@@ -24,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} font-sans bg-white text-[#0A0A0A] flex flex-col min-h-screen`}>
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <AppKitProvider>
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </AppKitProvider>
       </body>
     </html>
   )

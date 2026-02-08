@@ -100,8 +100,80 @@ body {
   }
 }
 
-.animate-float {
-  animation: float-up linear infinite;
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes planet-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(215deg) translateX(-1500px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-sun {
+
+  0%,
+  100% {
+    box-shadow: 0 0 60px 20px rgba(253, 184, 19, 0.4), 0 0 100px 40px rgba(253, 184, 19, 0.1);
+    transform: translate(-50%, -50%) scale(1) rotateX(-75deg);
+  }
+
+  50% {
+    box-shadow: 0 0 80px 30px rgba(253, 184, 19, 0.5), 0 0 120px 60px rgba(253, 184, 19, 0.2);
+    transform: translate(-50%, -50%) scale(1.1) rotateX(-75deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin linear infinite;
+}
+
+.animate-sun {
+  animation: pulse-sun 4s ease-in-out infinite;
 }
 
 .animate-twinkle {
@@ -113,4 +185,58 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes aurora-flow {
+  0% {
+    transform: translateX(-5%) rotate(-10deg) skewX(-10deg);
+  }
+
+  50% {
+    transform: translateX(5%) rotate(-10deg) skewX(-12deg);
+  }
+
+  100% {
+    transform: translateX(-5%) rotate(-10deg) skewX(-10deg);
+  }
+}
+
+@keyframes aurora-flow-delayed {
+  0% {
+    transform: translateX(5%) rotate(-5deg) skewX(5deg);
+  }
+
+  50% {
+    transform: translateX(-5%) rotate(-5deg) skewX(8deg);
+  }
+
+  100% {
+    transform: translateX(5%) rotate(-5deg) skewX(5deg);
+  }
+}
+
+@keyframes aurora-shimmer {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1) rotate(15deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scaleY(1.1) rotate(15deg);
+  }
+}
+
+.animate-aurora-flow {
+  animation: aurora-flow 20s ease-in-out infinite;
+}
+
+.animate-aurora-flow-delayed {
+  animation: aurora-flow-delayed 25s ease-in-out infinite reverse;
+}
+
+.animate-aurora-shimmer {
+  animation: aurora-shimmer 8s ease-in-out infinite;
 }

@@ -12,11 +12,12 @@ export function Navbar() {
     const links = [
         { href: '/', label: 'Home' },
         { href: '/promote', label: 'Promote Coin' },
+        { href: '/video-generator', label: 'Video Generator' },
         { href: '/about', label: 'About' },
     ];
 
     return (
-        <nav className="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <nav className="border-b border-white/10 bg-black/20 backdrop-blur-md sticky top-0 z-50">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
                     <div className="h-8 w-8 bg-primary rounded-lg flex items-center justify-center">
@@ -41,9 +42,8 @@ export function Navbar() {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                    <Link href="/promote">
-                        <Button size="sm">Get Started</Button>
-                    </Link>
+                    {/* Reown Connect Button */}
+                    <appkit-button />
                 </div>
             </div>
         </nav>
