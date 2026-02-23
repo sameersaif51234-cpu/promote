@@ -35,8 +35,14 @@ interface Meteoroid {
 export const InteractiveSpaceBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
         const handleResize = () => {
             setDimensions({
                 width: window.innerWidth,
@@ -208,6 +214,8 @@ export const InteractiveSpaceBackground = () => {
             cancelAnimationFrame(animationFrameId);
         };
     }, [dimensions]);
+
+    if (!mounted) return null;
 
     return (
         <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#020205]">

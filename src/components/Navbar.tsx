@@ -12,7 +12,6 @@ export function Navbar() {
     const links = [
         { href: '/', label: 'Home' },
         { href: '/promote', label: 'Promote Coin' },
-        { href: '/video-generator', label: 'Video Generator' },
         { href: '/about', label: 'About' },
     ];
 

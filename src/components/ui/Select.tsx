@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     label?: string;
     error?: string;
-    options: { label: string; value: string }[];
+    options: { label: string; value: string; disabled?: boolean; hidden?: boolean }[];
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -29,7 +29,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     >
                         <option value="" disabled hidden>Select an option</option>
                         {options.map((opt) => (
-                            <option key={opt.value} value={opt.value}>
+                            <option key={opt.value} value={opt.value} disabled={opt.disabled} hidden={opt.hidden}>
                                 {opt.label}
                             </option>
                         ))}
